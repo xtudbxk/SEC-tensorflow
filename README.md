@@ -36,7 +36,7 @@ For using the densecrf in python, we turn to the project [pydensecrf](https://gi
 
 1. for pascal data, please referring to its [official website](http://host.robots.ox.ac.uk/pascal/VOC/). Just download it and extract in the data/ .
 2. for localization_cues.pickle, please referring to [SEC-caffe](https://github.com/kolesman/SEC). And download it and extract in the data/ .
-3. for the init.npy, I upload a converted file in xxx, just download it and put it in the model/ . And those weights in the file is exactly the same with the vgg16_20M.caffemodel in   [SEC-caffe](https://github.com/kolesman/SEC).
+3. for the init.npy, I upload a converted file in [google driver](https://drive.google.com/open?id=1MtbE1b6R4i28KabS-s7NcL08EpV3qOGl), just download it and put it in the model/ . And those weights in the file is exactly the same with the vgg16_20M.caffemodel in   [SEC-caffe](https://github.com/kolesman/SEC).
 
 For more details, you can referring to the correspond code files or leave a message in the issue.
 
