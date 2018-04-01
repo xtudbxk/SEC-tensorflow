@@ -10,7 +10,7 @@ import skimage.io as imgio
 from datetime import datetime
 import skimage.transform as imgtf
 
-class dataset_sec(dataset_tf):
+class dataset():
     def __init__(self,config={}):
         self.config = config
         self.w,self.h = self.config.get("input_size",(321,321))
@@ -25,6 +25,10 @@ class dataset_sec(dataset_tf):
         self.img_mean[:,:,2] *= 122.67891434
 
         self.data_f,self.data_len = self.get_data_f()
+
+    def get_data_len(self,category=None):
+        if category is None: category = self.default_category
+        return self.data_len[category]
 
     def get_data_f(self):
         self.cues_data = pickle.load(open("data/localization_cues.pickle","rb"),encoding="iso-8859-1")

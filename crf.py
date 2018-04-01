@@ -16,7 +16,7 @@ def crf_inference(feat,img,crf_config,categorys_num,gt_prob=0.7,use_log=False):
     crf_config: {"g_sxy":3,"g_compat":3,"bi_sxy":5,"bi_srgb":5,"bi_compat":10,"iterations":5}
     '''
     img = img.astype(np.uint8)
-    pred_or_feat = pred_or_feat.astype(np.float32)
+    pred_or_feat = feat.astype(np.float32)
     h,w = img.shape[0:2]
     crf = dcrf.DenseCRF2D(w,h,categorys_num)
 

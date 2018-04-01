@@ -143,7 +143,7 @@ class SEC():
 
 
     def build_crf(self,featemap_layer,img_layer):
-        origin_image = self.net(img_layer) + self.data.img_mean
+        origin_image = self.net[img_layer] + self.data.img_mean
         origin_image_zoomed = tf.image.resize_bilinear(origin_image,(41,41))
         featemap = self.net[featemap_layer]
         def crf(featemap,image):
@@ -274,7 +274,10 @@ class SEC():
         loss = tf.reduce_mean(tf.reduce_sum(probs_smooth * tf.log(probs_smooth/softmax), axis=3))
         return loss
 
-    def optimize(self,base_lr,momentum):
+    def optimize(self,base_lr,momentum,weight_decay):
+        self.loss["norm"] = self.getloss()
+        self.loss["l2"] = sum([tf.nn.l2_loss(self.weights[layer][0]) for layer in self.weights])
+        self.loss["total"] = self.loss["norm"] + weight_decay*self.loss["l2"]
         self.net["lr"] = tf.Variable(base_lr, trainable=False, dtype=tf.float32)
         opt = tf.train.MomentumOptimizer(self.net["lr"],momentum)
         gradients = opt.compute_gradients(self.loss["total"],var_list=self.trainable_list)
@@ -301,7 +304,7 @@ class SEC():
         self.sess = tf.Session(config=gpu_options)
         x,gt,y,c,id_of_image,iterator_train = self.data.next_batch(category="train",batch_size=batch_size,epoches=-1)
         self.build()
-		self.optimize(base_lr,momentum)
+        self.optimize(base_lr,momentum,weight_decay)
         self.saver["norm"] = tf.train.Saver(max_to_keep=2,var_list=self.trainable_list)
         self.saver["lr"] = tf.train.Saver(var_list=self.trainable_list)
         self.saver["best"] = tf.train.Saver(var_list=self.trainable_list,max_to_keep=2)
