@@ -48,4 +48,4 @@ then, you just input the following sentence to train it.
 
 ### Result
 
-train the network with totally 24 epoch and lr=1e-3 for the begining, then lr drops into one tenth of its old value. And in testing, we first resize the featmap into 321x321 and update the crf config for testing( just remove the 12 in the origin crf config), And the final result is 0.502 in the validatation set while the paper is 0.507.
+train the network with totally 24 epoch and lr=1e-3 for the begining, then lr drops into one tenth of its old value each 8 epoches. And in testing, we first resize the featmap into 321x321 and update the crf config for testing( just remove the 12 in the origin crf config), And the final result is 0.502 in the validatation set while the paper is 0.507.
