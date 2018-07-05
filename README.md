@@ -48,4 +48,4 @@ then, you just input the following sentence to train it.
 
 ### Result
 
-After the training, we could reach a miou of 0.487 while it is 0.517 in the paper. Maybe there is some details I don't notice, for the time being at least, I didn't go deeper in the experiment.
+train the network with totally 24 epoch and lr=1e-3 for the begining, then lr drops into one tenth of its old value. And in testing, we first resize the featmap into 321x321 and update the crf config for testing( just remove the 12 in the origin crf config), And the final result is 0.502 in the validatation set while the paper is 0.507.
