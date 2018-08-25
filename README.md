@@ -32,6 +32,8 @@ For using the densecrf in python, we turn to the project [pydensecrf](https://gi
 
 > pip install pydensecrf
 
+*note*: from the page of [pydensecrf](https://github.com/lucasb-eyer/pydensecrf), maybe you should upgrade the cython to a newer version befor install it.
+
 ##### 2. Download the data and model
 
 1. for pascal data, please referring to its [official website](http://host.robots.ox.ac.uk/pascal/VOC/). Just download it and extract in the data/ .
