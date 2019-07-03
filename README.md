@@ -32,6 +32,8 @@ For using the densecrf in python, we turn to the project [pydensecrf](https://gi
 
 > pip install pydensecrf
 
+*note*: from the page of [pydensecrf](https://github.com/lucasb-eyer/pydensecrf), maybe you should upgrade the cython to a newer version befor install it.
+
 ##### 2. Download the data and model
 
 1. for pascal data, please referring to its [official website](http://host.robots.ox.ac.uk/pascal/VOC/)  and to the augmental [SBD data](http://home.bharathh.info/pubs/codes/SBD/download.html). Just download it and extract it in the data/, then 'cd data' and run convert.py with 'python convert.py'.
@@ -46,6 +48,5 @@ then, you just input the following sentence to train it.
 
 > python SEC.py <gpu_id>
 
-### Result
-
-After the training, we could reach a miou of 0.487 while it is 0.517 in the paper. Maybe there is some details I don't notice, for the time being at least, I didn't go deeper in the experiment.
+### Evaluation
+I just release a [project](https://github.com/xtudbxk/semantic-segmentation-metrics) to provide the code for evaluation.
