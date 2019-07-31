@@ -42,6 +42,9 @@ For using the densecrf in python, we turn to the project [pydensecrf](https://gi
 
 For more details, you can referring to the correspond code files or leave a message in the issue.
 
+##### 3. Be careful about the versions of python and tensorflow
+We just only test on python3.7 and tensorflow 1.14.0. 
+
 ### Training
 
 then, you just input the following sentence to train it.
