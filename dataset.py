@@ -82,7 +82,7 @@ class dataset():
             img = tf.image.decode_image(img_raw)
             gt_f = x["gt_f"]
             gt_raw = tf.read_file(gt_f)
-            gt = tf.image.decode_image(gt_raw)
+            gt = tf.image.decode_image(gt_raw)[:,:,0:1]
             img,gt = self.image_preprocess(img,gt,random_scale=False,flip=False,rotate=False)
             #img = self.image_preprocess(img,random_scale=True,flip=True,rotate=False)
             img = tf.reshape(img,[self.h,self.w,3])
